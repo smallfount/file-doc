@@ -396,6 +396,9 @@ function try_feedsList(tabId, page){
                                         args_xh.printLog ? console.log(`商品被过滤，已申请试用人数大于预设人数 \n`) : ''
                                     } else if(parseFloat(item.jdPrice) < args_xh.jdPrice){
                                         args_xh.printLog ? console.log(`商品被过滤，商品原价低于预设商品原价 \n`) : ''
+                                    } else if(parseFloat(item.trialPrice) > args_xh.trialPrice){
+                                        args_xh.printLog ? console.log(`商品被过滤，商品试用价高于于预设试用价 \n`) : ''                                        
+                                        
                                     } else if(args_xh.titleFilters.some(fileter_word => item.skuTitle.includes(fileter_word) ? tempKeyword = fileter_word : '')){
                                         args_xh.printLog ? console.log(`商品被过滤，含有关键词 ${tempKeyword}\n`) : ''
                                     } else {
