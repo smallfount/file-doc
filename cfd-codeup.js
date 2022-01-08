@@ -485,13 +485,13 @@ async function cfd() {
 //               break
 //           }
 //         }
-      } catch (e) {
-        $.logErr(e, resp);
-      } finally {
-        resolve(data);
-      }
-    })
-  })
+//       } catch (e) {
+//         $.logErr(e, resp);
+//       } finally {
+//         resolve(data);
+//       }
+//     })
+//   })
 }
 
 // 卖贝壳
