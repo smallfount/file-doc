@@ -493,6 +493,9 @@ async function cfd() {
 //     })
 //   })
 }
+finally {
+ resolve(data);
+  }
 
 // 卖贝壳
 async function querystorageroom(dwSceneId) {
