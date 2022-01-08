@@ -493,9 +493,15 @@ async function cfd() {
 //     })
 //   })
 }
-finally {
- resolve(data);
-  }
+catch (e) 
+    {
+    $.logErr(e, resp);
+    }
+finally 
+    {
+    await $.wait(2000);
+    }
+}
 
 // 卖贝壳
 async function querystorageroom(dwSceneId) {
