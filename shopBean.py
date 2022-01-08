@@ -88,7 +88,7 @@ def write_text(text):
     with open('./shopGift.txt','w') as f:
         f.write(text)
 def read_text():
-    with open('./shopGift.txt','x+') as f:
+    with open('./shopGift.txt','r+') as f:
         f=f.read()
     return f
 def ShopGift():
