@@ -103,38 +103,38 @@ if ($.isNode()) {
     await pasture();
     await $.wait(2000);
   }
-  $.res = await getAuthorShareCode('https://raw.githubusercontent.com/Aaron-lv/updateTeam/master/shareCodes/jxmc.json')
-  if (!$.res) {
-    $.http.get({url: 'https://purge.jsdelivr.net/gh/Aaron-lv/updateTeam@master/shareCodes/jxmc.json'}).then((resp) => {}).catch((e) => console.log('刷新CDN异常', e));
-    await $.wait(1000)
-    $.res = await getAuthorShareCode('https://cdn.jsdelivr.net/gh/Aaron-lv/updateTeam@master/shareCodes/jxmc.json')
-  }
-  await shareCodesFormat()
-  for (let i = 0; i < cookiesArr.length; i++) {
-    $.cookie = cookiesArr[i];
-    $.UserName = decodeURIComponent($.cookie.match(/pt_pin=([^; ]+)(?=;?)/) && $.cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
-    $.canHelp = true;
-    $.index = i + 1;
-    UA = UAInfo[$.UserName]
-    token = await getJxToken()
-    if ($.newShareCodes && $.newShareCodes.length) {
-      console.log(`\n开始互助\n`);
-      for (let j = 0; j < $.newShareCodes.length && $.canHelp; j++) {
-        console.log(`账号${$.UserName} 去助力 ${$.newShareCodes[j]}`)
-        $.delcode = false
-        $.code = $.newShareCodes[j];
-        await takeGetRequest('help');
-        await $.wait(2000);
-        if ($.delcode) {
-          $.newShareCodes.splice(j, 1)
-          j--
-          continue
-        }
-      }
-    } else {
-      break
-    }
-  }
+//   $.res = await getAuthorShareCode('https://raw.githubusercontent.com/Aaron-lv/updateTeam/master/shareCodes/jxmc.json')
+//   if (!$.res) {
+//     $.http.get({url: 'https://purge.jsdelivr.net/gh/Aaron-lv/updateTeam@master/shareCodes/jxmc.json'}).then((resp) => {}).catch((e) => console.log('刷新CDN异常', e));
+//     await $.wait(1000)
+//     $.res = await getAuthorShareCode('https://cdn.jsdelivr.net/gh/Aaron-lv/updateTeam@master/shareCodes/jxmc.json')
+//   }
+//   await shareCodesFormat()
+//   for (let i = 0; i < cookiesArr.length; i++) {
+//     $.cookie = cookiesArr[i];
+//     $.UserName = decodeURIComponent($.cookie.match(/pt_pin=([^; ]+)(?=;?)/) && $.cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
+//     $.canHelp = true;
+//     $.index = i + 1;
+//     UA = UAInfo[$.UserName]
+//     token = await getJxToken()
+//     if ($.newShareCodes && $.newShareCodes.length) {
+//       console.log(`\n开始互助\n`);
+//       for (let j = 0; j < $.newShareCodes.length && $.canHelp; j++) {
+//         console.log(`账号${$.UserName} 去助力 ${$.newShareCodes[j]}`)
+//         $.delcode = false
+//         $.code = $.newShareCodes[j];
+//         await takeGetRequest('help');
+//         await $.wait(2000);
+//         if ($.delcode) {
+//           $.newShareCodes.splice(j, 1)
+//           j--
+//           continue
+//         }
+//       }
+//     } else {
+//       break
+//     }
+//   }
 })()
   .catch((e) => {
     $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
@@ -152,7 +152,8 @@ async function pasture() {
     if (JSON.stringify($.homeInfo) === '{}') {
       console.log(`获取活动详情失败`);
       return;
-    } else {
+    } else 
+    {
     //   if (!$.homeInfo.petinfo) {
     //     console.log(`\n温馨提示：${$.UserName} 请先手动完成【新手指导任务】再运行脚本再运行脚本\n`);
     //     return;
@@ -393,7 +394,8 @@ async function pasture() {
     //           }
     //       }
     }
-  } catch (e) {
+    }
+    catch (e) {
     $.logErr(e)
   }
 }
