@@ -194,8 +194,8 @@ let args_xh = {
                         await try_feedsList(args_xh.tabId[$.nowTabIdIndex], $.nowPage)  //获取对应tabId的试用页面
                     }
                     if(trialActivityIdList.length < args_xh.maxLength){
-                        console.log(`间隔等待中，请等待 2 秒\n`)
-                        await $.wait(2000);
+                        console.log(`间隔等待中，请等待 5 秒\n`)
+                        await $.wait(5000);
                     }
                 }
                 if($.isForbidden === false && $.isLimit === false){
